@@ -613,6 +613,9 @@ ul.cd-slider-navigation {
     width: 35%;
   }
 }
+header {
+  height: auto !important;
+}
 @keyframes jitter {
   50% {
     transform: skewY(5deg) skewX(5deg) scale(1.006);
