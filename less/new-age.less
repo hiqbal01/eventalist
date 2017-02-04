@@ -2,6 +2,14 @@
 @import "mixins.less";
 
 // Global Components
+
+@font-face {
+  font-family: 'OJ';
+  src: url('../fonts/orange_juice_2.0-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/orange_juice_2.0-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/orange_juice_2.0-webfont.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
 html,
 body {
     height: 100%;
@@ -54,12 +62,29 @@ p {
     border-color: fade(@gray-darker, 5%);
     .transition-all;
     .heading-font;
+    font-family: "OJ";
     .navbar-header .navbar-brand {
         .heading-font;
+        font-family: "OJ";
+        font-size: 70px;
+        margin-top: 25px;
         color: @theme-primary;
+        position: relative;
         &:hover,
         &:focus {
             color: darken(@theme-primary, 10%);
+        }
+        img.title_logo {
+            width: auto;
+            height: 110px;
+            position: absolute;
+            left: -35px;
+            top: -30px;
+            opacity: 1;
+        }
+        span{
+            position: relative;
+            z-index:2;
         }
     }
     .navbar-header .navbar-toggle {
@@ -137,9 +162,9 @@ header {
     width: 100%;
     min-height: auto;
     overflow-y: hidden;
-    background: url("../img/bg-pattern.png"), @theme-secondary; /* fallback for old browsers */
-    background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary); /* Chrome 10-25, Safari 5.1-6 */
-    background: url("../img/bg-pattern.png"), linear-gradient(to left, @theme-secondary , @theme-tertiary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: @theme-secondary; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, @theme-secondary , @theme-tertiary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     .header-content {
         text-align: center;
@@ -192,10 +217,22 @@ header {
             max-height: calc(100vh - 100px);
             margin: 100px auto 0;
         }
+        .navbar-default .navbar-header .navbar-brand {
+            padding-left: 35px;
+        }
+        .navbar-default .navbar-header .navbar-brand img.title_logo {
+            padding-left: 35px;
+        }
     }
     @media (min-width: 992px) {
         .header-content .header-content-inner h1 {
             font-size: 50px;
+        }
+        .navbar-default .navbar-header .navbar-brand {
+            padding-left: 35px;
+        }
+        .navbar-default .navbar-header .navbar-brand img.title_logo {
+            padding-left: 35px;
         }
     }
 }
@@ -286,7 +323,7 @@ section.cta {
     position: relative;
     .background-cover;
     background-position: center;
-    background-image: url('../img/bg-cta.jpg');
+    background-image: url('../img/Z_bd_1.jpg');
     padding: 250px 0;
     .cta-content {
         position: relative;
@@ -296,11 +333,11 @@ section.cta {
             margin-bottom: 25px;
             color: white;
             max-width: 450px;
-            font-size: 50px;
+            font-size: 40px;
         }
         @media (min-width: 768px) {
             h2 {
-                font-size: 80px;
+                font-size: 60px;
             }
         }
     }
@@ -320,7 +357,7 @@ section.contact {
         margin-top: 0;
         margin-bottom: 25px;
         i {
-            color: @brand-google-plus;
+            color: #f76191;
         }
     }
     ul.list-social {
@@ -354,6 +391,15 @@ section.contact {
             &.social-google-plus {
                 a {
                     background-color: @brand-google-plus;
+                    &:hover {
+                        background-color: darken(@brand-google-plus, 5%);
+                    }
+                }
+            }
+            &.social-instagram {
+                a {
+                    background-image: url("../img/instagram_gradient.png");
+                    background-size: 150% 130%;
                     &:hover {
                         background-color: darken(@brand-google-plus, 5%);
                     }
@@ -458,3 +504,119 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: @gray-darker;
 }
+
+.navbar{
+    min-height: 100px;
+    @media all and (max-width: 992px) {
+        min-height: 60px;
+        height: 60px;
+    }
+}
+
+ul.nav.navbar-nav.navbar-right {
+    top: 25px;
+    position: relative;
+}
+
+#mainNav{
+    @media all and (max-width: 768px) {            
+        .navbar-header .navbar-brand span{
+            color: #222;
+        }
+    }
+    @media all and (max-width: 992px) {
+        .navbar-header .navbar-brand {
+            padding-left: 35px;
+            top: -25px;
+        }
+        .navbar-header .navbar-brand img.title_logo {
+            padding-left: 35px;
+            height: 60px;
+            top: -2px;
+            left: -20px;
+        }
+        .navbar-header .navbar-brand span{
+            padding-left: 10px;
+            font-size:50px;
+        }
+        .navbar-header .navbar-brand span span{
+            padding-left: 0px;
+        }
+        ul.nav.navbar-nav.navbar-right {
+            top: 0px;
+        }
+    }
+}
+
+.jittery span span{
+    animation:jitter 300ms linear infinite;
+    display:inline-block;
+    padding-left:0px;
+    padding-right:0px;
+    margin-left:0px;
+    margin-right:0px;
+    letter-spacing: -1px;
+}
+
+.navbar-default .navbar-toggle {
+    border: none;
+}
+
+.navbar-default .navbar-header .navbar-toggle{
+    font-size: 16px !important;
+    padding: 12px 10px !important;
+    .heading-font;
+    color: @theme-primary;
+    background: none !important;
+}
+
+#bs-example-navbar-collapse-1[aria-expanded="true"] {
+    border: none;
+    background: #fff;
+    top: -16px;
+    position: relative;
+}
+
+.cd-slider {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+  
+ul.cd-slider-navigation {
+    margin-bottom: 0px;
+}
+
+.cd-single-item {
+    position: relative;
+    background: #ffffff;
+    padding: 0px;
+}
+
+.cd-slider img {
+    max-height: 600px;
+    width: auto !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #111;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cd-slider li {
+    background: #111;
+}
+
+@media only screen and (min-width: 1024px){
+    .cd-slider-wrapper {
+        width: 65%;
+    }
+    .cd-item-info {
+        width: 35%;
+    }
+}
+
+@keyframes jitter{ 50%{transform:skewY(5deg) skewX(5deg) scale(1.006);} }
+
+@keyframes jitterslow{ 50%{transform:skewY(15deg) skewX(-15deg) scale(1.006);} }
