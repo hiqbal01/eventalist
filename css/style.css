@@ -8,15 +8,6 @@ Primary style
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-html {
-  font-size: 62.5%; }
-
-body {
-  font-size: 1.6rem;
-  font-family: "PT Sans", sans-serif;
-  color: #262626;
-  background-color: #f5f4f3; }
-
 a {
   color: #f42e4e;
   text-decoration: none; }
@@ -30,10 +21,6 @@ Main Components
 
 -------------------------------- */
 header {
-  height: 170px;
-  line-height: 170px;
-  text-align: center;
-  background: #513e5d;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
   header h1 {
